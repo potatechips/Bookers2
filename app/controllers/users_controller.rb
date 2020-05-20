@@ -6,15 +6,25 @@ class UsersController < ApplicationController
 	end
 
 	def show
+		@user = User.find(params[:id])
 	end
 
 	def edit
+		@user = User.find(params[:id])
+		if @user.id != current_user.id
+           flash[:notice] = "can't successfully access!"
+           redirect_to user_path(current_user.id)
+        end
 	end
 
 	def update
 		@user = User.find(params[:id])
-		user.update
-		redirect_to user_path(@user.id)
+		if user.update
+		   flash[:notice] = "successfully update user!"
+		   redirect_to user_path(@user.id)
+		else
+		   render :edit
+		end
 	end
 
 	private
