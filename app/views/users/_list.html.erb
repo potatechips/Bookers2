@@ -1,43 +1,28 @@
-      <div class="container">
+<div class="col-xs-3">
+  <h2>User info</h2>
+   <table class="table">
+         <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no-image.jpg" %>
+      <tbody>
+        <tr>
+    	    <th>name</th>
+    	    <th><%= @user.name %></th>
+        </tr>
+        <tr>
+    	    <th>introduction</th>
+    	    <th><%= @user.introduction %></th>
+        </tr>
+      </tbody>
+   </table>
+   <%= link_to"",edit_user_path(@user), class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench" %>
 
-        <p id="notice"></p>
-
-
-      	<div class="row">
-
-  <div class="col-xs-3">
-    <h2>User info</h2>
-    <img class="attachment user profile_image fallback" src="/assets/no_image-ede28af4bad96368ef41be1b4be1cffce0d9402540f75d17895e32cb0d2af5e6.jpg" alt="No image"><table class="table">
-      <tbody><tr></tr>
-      <tr>
-    	  <th>name</th>
-    	  <th></th>
-      </tr>
-      <tr>
-    	  <th>introduction</th>
-    	  <th></th>
-      </tr>
-</tbody></table>
-
-<div class="row">
-  <a class="col-xs-12 btn btn-default glyphicon glyphicon-wrench edit_user_17714" href="/users/17714/edit"></a>
-</div>
 
     <h2>New book</h2>
-    <form class="new_book" id="new_book" action="/books" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="fpJbhb0OmMveyYjsGbQ5Kj9rLsh5LlQ9tGV7MObSqkx2iD1dDGYkdYRLX+uPuZUhTokD80YJQhBC3GcdtcoU/A==">
-  <div class="field row">
-    <label for="book_title">Title</label>
-    <input class="col-xs-12 book_title" type="text" name="book[title]" id="book_title">
-  </div>
+    <%= form_for(@book) do |f| %>
+    <h4>Title</h4>
+    <%= f.text_field :title %>
+    <h4>Opinion</h4>
+    <%= f.text_area :body %>
+    <%= f.submit "Create Book", class: "col-xs-12 btn btn-primary" %>
+    <% end %>
 
-  <div class="field row">
-    <label for="book_opinion">Opinion</label>
-    <textarea class="col-xs-12 book_body" name="book[body]" id="book_body"></textarea>
-  </div>
-
-  <div class="actions row">
-    <input type="submit" name="commit" value="Create Book" class="btn btn-primary col-xs-12" data-disable-with="Create Book">
-  </div>
-</form>
-
-  </div>
+</div>
