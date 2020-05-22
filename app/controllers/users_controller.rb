@@ -5,12 +5,13 @@ class UsersController < ApplicationController
 	def index
 		@user = current_user
 		@users = User.all
-		@book = Book.new
+		@book_new = Book.new
 	end
 
 	def show
+		@book_new = Book.new
 		@user = User.find(params[:id])
-		@book = Book.new
+		@books = @user.books
 	end
 
 	def edit
@@ -18,7 +19,7 @@ class UsersController < ApplicationController
 		 if @user.id != current_user.id
             flash[:notice] = "can't successfully access!"
             redirect_to user_path(current_user.id)
-    end
+         end
 	end
 
 	def update
