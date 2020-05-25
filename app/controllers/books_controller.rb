@@ -25,7 +25,7 @@ class BooksController < ApplicationController
     def show
         @book = Book.find(params[:id])
         @book_new = Book.new
-        @user = current_user
+        @user = @book.user
     end
 
     def edit
@@ -54,7 +54,7 @@ class BooksController < ApplicationController
            @book = Book.find(params[:id])
         if @book.user.id != current_user.id
            flash[:notice] = "can't successfully access!"
-           redirect_to user_path(current_user.id)
+           redirect_to books_path
         end
     end
 

@@ -4,7 +4,7 @@
   <div class="alert alert-warning">
     <ul>
       <% @book.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+        <li><%= message %>error</li>
       <% end %>
     </ul>
   </div>
@@ -15,7 +15,7 @@
 <h4>Opinion</h4>
 <%= f.text_area :body %><br>
 <%= f.submit "Update Book",class: "btn btn-primary width" %><br>
-<%= link_to "show",book_path(@book) %>
+<%= link_to "Show",book_path(@book) %>
 |
 <%= link_to "Back",books_path %>
 <% end %>
