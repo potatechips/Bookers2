@@ -20,12 +20,16 @@ class BooksController < ApplicationController
     	 @user = current_user
   	     @book_new = Book.new
   	     @books = Book.all
+
     end
 
     def show
         @book = Book.find(params[:id])
         @book_new = Book.new
         @user = @book.user
+
+        @book_comments = BookComment.all
+        @book_comment = BookComment.new
     end
 
     def edit
@@ -57,7 +61,8 @@ class BooksController < ApplicationController
            redirect_to books_path
         end
     end
-
+    
+    private
     def book_params
     	params.require(:book).permit(:title,:body)
     end
