@@ -32,6 +32,19 @@ class UsersController < ApplicationController
 		end
 	end
 
+# ==============user,usersで呼ぶデータを定義する、userは同じ================
+  def follows
+    user = User.find(params[:id])
+    @users = user.followings
+  end
+
+  def followers
+    user = User.find(params[:id])
+    @users = user.followers
+  end
+# ==============↑usersで一覧表示したいデータの区別を行う================
+
+
     protected
     def correct_user?
     	user = User.find(params[:id])
