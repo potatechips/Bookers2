@@ -38,19 +38,18 @@
       </nav>
      </div>
     </header>
+     <% if user_signed_in? %>
+    <%= render 'search/search' %>
+    <!-- 検索窓必須だが、あとでログインしている人にしか見えなくする -->
+    <% end %>
 
      <%= yield %>
 
     <footer>
-      <div class="container">
-       <div class="row">
          <div class="col-xs-3 col-xs-offset-9">
           <p>CopyRight Infratop.inc</p>
          </div>
-       </div>
-      </div>
     </footer>
-
 
   </body>
 </html>

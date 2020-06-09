@@ -1,7 +1,6 @@
-<%= flash[:notice] %>
-
 <%= render 'users/list', book: @book,user: @user,book_new: @book_new %>
 <div class="container">
+  <p><%= flash[:notice] %></p>
 <div class="row">
  <div class="col-xs-9">
   <h2>Book detail</h2>

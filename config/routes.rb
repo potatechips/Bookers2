@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  get 'relationships/create'
-  get 'relationships/destroy'
+
   root "homes#top"
   get "home/about" => "homes#about"
+  get '/search' => 'search#search', as: 'search'
 
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -16,5 +16,7 @@ Rails.application.routes.draw do
     get :follows, on: :member
     get :followers, on: :member
   end
+  # get 'relationships/create'
+  # get 'relationships/destroy'
 
 end

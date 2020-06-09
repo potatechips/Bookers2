@@ -1,5 +1,5 @@
-
 <div class="container">
+  <p><%= flash[:notice] %></p>
 <div class="row">
  <%= render "users/list", book: @book,user: @user,book_new: @book_new %>
 
@@ -33,5 +33,4 @@
   </table>
   </div>
   </div>
-      </div>
-    </div>
+</div>
